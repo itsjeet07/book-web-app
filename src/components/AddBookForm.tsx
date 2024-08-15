@@ -4,8 +4,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Book } from '@/types/Book';
 import '@/styles/bookForm.scss'
 import { toast } from 'react-toastify';
-import FormInput from '@/components/formInput';
-import FormTextarea from '@/components/formTextArea';
+import FormInput from '@/components/FormInput';
+import FormTextarea from '@/components/FormTextArea';
 import FormButton from '@/components/FormButton';
 
 interface AddBookFormProps {
