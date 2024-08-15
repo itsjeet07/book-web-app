@@ -1,0 +1,29 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: auto;
+
+    input,
+    textarea {
+        padding: 10px;
+        margin: 10px;
+        width: 400px;
+    }
+
+    button {
+        padding: 10px;
+        margin: 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 10px;
+        padding: 10px;
+        width: 400px;
+
+    }
+
+    .btn-submit {
+        background-color: #007bff;
+    }
+
+}
