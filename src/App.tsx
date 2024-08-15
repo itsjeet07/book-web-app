@@ -8,6 +8,7 @@ import { Book } from '@/types/Book';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Header from '@/components/Header';
+import Loader from '@/components/Loader';
 
 const App: React.FC = () => {
   const { books, loading, addBook, editBook, deleteBook } = useBooks();
@@ -25,7 +26,7 @@ const App: React.FC = () => {
   }, [deleteBook]);
 
 
-  if (loading) return <div className="loading-container"><p>Loading...</p></div>;
+  if (loading) return <Loader isLoading={loading} />;
 
   return (
     <Router>
