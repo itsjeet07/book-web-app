@@ -7,6 +7,7 @@ import { useBooks } from "@/hooks/useBooks";
 import { Book } from '@/types/Book';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Header from '@/components/Header';
 
 const App: React.FC = () => {
   const { books, loading, addBook, editBook, deleteBook } = useBooks();
@@ -29,7 +30,7 @@ const App: React.FC = () => {
   return (
     <Router>
       <div className="App">
-        <h1>Book Web App</h1>
+        <Header title="Book Web App" />
         <Routes>
           <Route path="/" element={<Navigate to="/books" />} />
           <Route path="/books" element={<BookList books={books} />} />
