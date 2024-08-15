@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import AddBookForm from "@/components/AddBookForm";
-import BookDetail from "@/components/BookDetail";
-import BookList from "@/components/BookList";
+import AddBookForm from "@/pages/AddBookForm";
+import BookDetail from "@/pages/BookDetail";
+import BookList from "@/pages/BookList";
 import { useBooks } from "@/hooks/useBooks";
 import { Book } from '@/types/Book';
 import { ToastContainer } from 'react-toastify';

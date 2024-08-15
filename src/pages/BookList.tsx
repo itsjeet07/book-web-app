@@ -3,6 +3,7 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { Book } from '@/types/Book';
 import BookItem from '@/components/BookItem';
 import styles from '@/styles/bookList.module.scss';
+import Pagination from '@/components/Pagination';
 
 interface BookListProps {
     books: Book[];
@@ -16,13 +17,14 @@ const BookList: React.FC<BookListProps> = ({ books }) => {
     const indexOfLastBook = currentPage * booksPerPage;
     const indexOfFirstBook = indexOfLastBook - booksPerPage;
     const currentBooks = books.slice(indexOfFirstBook, indexOfLastBook);
-
-    const nextPage = () => setCurrentPage(prev => prev + 1);
-    const prevPage = () => setCurrentPage(prev => prev - 1);
-
+    
     useEffect(() => {
         setSearchParams({ page: JSON.stringify(currentPage) });
     }, [currentPage, setSearchParams]);
+
+    const handlePageChange = (page: number) => {
+        setCurrentPage(page);
+    };
 
     return (
         <div>
@@ -36,10 +38,12 @@ const BookList: React.FC<BookListProps> = ({ books }) => {
                     </div>
                 ))}
             </div>
-            <div className={styles.pagination}>
-                <button className={styles.btn} onClick={prevPage} disabled={currentPage === 1}>Previous</button>
-                <button className={styles.btn} onClick={nextPage} disabled={indexOfLastBook >= books.length}>Next</button>
-            </div>
+            <Pagination
+                currentPage={currentPage}
+                totalItems={books.length}
+                itemsPerPage={booksPerPage}
+                onPageChange={handlePageChange}
+            />
         </div>
     );
 };
