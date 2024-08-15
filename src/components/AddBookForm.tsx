@@ -2,7 +2,7 @@ import React, { useCallback, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Book } from '@/types/Book';
-import '@/styles/bookForm.scss'
+import styles from '@/styles/bookForm.module.scss'
 import { toast } from 'react-toastify';
 import FormInput from '@/components/FormInput';
 import FormTextarea from '@/components/FormTextArea';
@@ -48,14 +48,14 @@ const AddBookForm: React.FC<AddBookFormProps> = ({ updateBook, books }) => {
     );
 
     return (
-        <form className='form' onSubmit={handleSubmit(onSubmit)}>
+        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
             {renderInput('title', 'Title')}
             {renderInput('author', 'Author')}
             {renderInput('cover', 'Cover URL')}
             <FormTextarea {...register('description', { required: true })} placeholder="Description" />
             {renderInput('publicationDate', 'Publication Date', 'date')}
 
-            <FormButton className='btn-submit' type="submit">{id ? "Edit" : "Add"} Book</FormButton>
+            <FormButton className={styles.btn_submit} type="submit">{id ? "Edit" : "Add"} Book</FormButton>
             <FormButton type='button' onClick={handleBack}>Cancel</FormButton>
         </form>
     );

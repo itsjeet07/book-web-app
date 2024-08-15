@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { Book } from '@/types/Book';
 import BookItem from '@/components/BookItem';
-import '@/styles/bookList.scss';
+import styles from '@/styles/bookList.module.scss';
 
 interface BookListProps {
     books: Book[];
@@ -26,19 +26,19 @@ const BookList: React.FC<BookListProps> = ({ books }) => {
 
     return (
         <div>
-            <div className='list-header'>
-                <Link className='btn' to="/books/new">Add New Book</Link>
+            <div className={styles.list_header}>
+                <Link className={styles.btn} to="/books/new">Add New Book</Link>
             </div>
-            <div className="book-list">
+            <div className={styles.book_list}>
                 {currentBooks.map(book => (
                     <div key={book.id}>
                         <BookItem book={book} />
                     </div>
                 ))}
             </div>
-            <div className='pagination'>
-                <button className='btn' onClick={prevPage} disabled={currentPage === 1}>Previous</button>
-                <button className='btn' onClick={nextPage} disabled={indexOfLastBook >= books.length}>Next</button>
+            <div className={styles.pagination}>
+                <button className={styles.btn} onClick={prevPage} disabled={currentPage === 1}>Previous</button>
+                <button className={styles.btn} onClick={nextPage} disabled={indexOfLastBook >= books.length}>Next</button>
             </div>
         </div>
     );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Book } from '@/types/Book';
-import '@/styles/bookDetail.scss';
+import styles from '@/styles/bookDetail.module.scss';
 import { toast } from 'react-toastify';
 import ImageContainer from '@/components/ImageContainer';
 
@@ -32,17 +32,17 @@ const BookDetail: React.FC<BookDetailProps> = ({ books, deleteBook }) => {
     };
 
     return (
-        <div className="book-detail">
-            <ImageContainer src={book.cover} alt={book.title} />
+        <div className={styles.book_detail}>
+            <ImageContainer src={book.cover} alt={book.title} className='detail-Img' />
             <h2>{book.title}</h2>
             <h4>{book.author}</h4>
             <p>{book.description}</p>
             <p>{new Date(book.publicationDate).toLocaleDateString()}</p>
 
             <div>
-                {book.newBook && <button className='btn' onClick={handleEdit}>Edit</button>}
-                {book.newBook && <button className='btn' onClick={handleDelete}>Delete</button>}
-                <button className='btn' onClick={handleBack}>Back</button>
+                {book.newBook && <button className={styles.btn} onClick={handleEdit}>Edit</button>}
+                {book.newBook && <button className={styles.btn} onClick={handleDelete}>Delete</button>}
+                <button className={styles.btn} onClick={handleBack}>Back</button>
             </div>
         </div>
     );

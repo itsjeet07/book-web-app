@@ -1,6 +1,4 @@
 import React from 'react';
-import '@/styles/bookForm.scss'
-
 
 interface BookInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     customProp?: string;

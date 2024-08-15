@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Book } from '@/types/Book';
 import { useFavorites } from '@/hooks/useFavorites';
-import '@/styles/bookItem.scss';
+import styles from '@/styles/bookItem.module.scss';
 import { toast } from 'react-toastify';
 import ImageContainer from '@/components/ImageContainer';
 
@@ -21,12 +21,12 @@ const BookItem: React.FC<BookItemProps> = ({ book }) => {
     }
 
     return (
-        <div className="book-item">
+        <div className={styles.book_item}>
             <ImageContainer src={book.cover} alt={book.title} />
             <Link to={`/books/${book.id}`}>
                 <h3>{book.title}</h3>
             </Link>
-            <p className='author'>{book.author}</p>
+            <p className={styles.author}>{book.author}</p>
             <p>{book.description}</p>
             <p>{new Date(book.publicationDate).toLocaleDateString()}</p>
             <button onClick={togleFavoriteHandle}>
