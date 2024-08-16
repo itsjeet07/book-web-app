@@ -25,7 +25,7 @@ export const useBooks = () => {
   }
 
   const addNewbook = (book: Book) => {
-    const allLocalBooks = [book, ...localBooks];
+    const allLocalBooks = [...localBooks, book];
     setLocalBooks(allLocalBooks);
     updateLocal(allLocalBooks);
   }
